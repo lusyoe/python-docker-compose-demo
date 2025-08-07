@@ -5,7 +5,8 @@ export default function Home() {
   const [message, setMessage] = useState("加载中...");
 
   useEffect(() => {
-    fetch("http://localhost:8000/api/hello")
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+    fetch(`${apiUrl}/api/hello`)
       .then((res) => res.json())
       .then((data) => setMessage(data.message))
       .catch(() => setMessage("请求失败"));

@@ -1,5 +1,6 @@
 FROM node:20-alpine AS builder
 
+
 WORKDIR /app
 
 # 复制package.json和package-lock.json（如果存在）
@@ -11,12 +12,15 @@ RUN yarn config set registry http://registry.npmmirror.com && yarn install
 # 复制源代码
 COPY . .
 
+ARG NEXT_PUBLIC_API_URL
+# 设置构建时环境变量
+ENV NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
+
 # 构建静态文件
 RUN yarn build
 
 # 生产阶段
-#FROM nginx:alpine
-FROM harbor.luhome.com:80/library/nginx:alpine
+FROM nginx:alpine
 
 # 复制构建产物到 nginx 目录
 COPY --from=builder /app/out /usr/share/nginx/html
