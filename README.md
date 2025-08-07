@@ -149,9 +149,9 @@ def new_endpoint():
 本项目采用 MIT 许可证 - 查看 [LICENSE](LICENSE) 文件了解详情。
 
 ## 👨‍💻 作者
-姓名: 青萍叙事
-邮箱: lusyoe@163.com
-博客: https://blog.lusyoe.com
+姓名: 青萍叙事  
+邮箱: lusyoe@163.com  
+博客: https://blog.lusyoe.com  
 GitHub: https://github.com/lusyoe
 
 ---
